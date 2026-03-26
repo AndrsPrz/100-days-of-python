@@ -3,17 +3,10 @@ from art import logo
  
  
 def deal_card(deck):
-    """Returns a random card from the deck."""
     return random.choice(deck)
  
  
-def calculate_score(cards):
-    """
-    Returns the total score of a hand.
-    - Automatically converts Ace (11) to 1 if the total exceeds 21.
-    - Returns 0 for a natural blackjack (2-card 21).
-    """
-    
+def calculate_score(cards)
     if sum(cards) == 21 and len(cards) == 2:
         return 0
  
