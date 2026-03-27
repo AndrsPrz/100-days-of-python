@@ -5,11 +5,9 @@ from art import logo
 def deal_card(deck):
     return random.choice(deck)
  
- 
 def calculate_score(cards)
     if sum(cards) == 21 and len(cards) == 2:
         return 0
- 
     
     if sum(cards) > 21 and 11 in cards:
         cards[cards.index(11)] = 1
