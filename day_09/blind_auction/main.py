@@ -6,7 +6,7 @@ print(logo)
 def ask_for_bid(bids):
     name = input("What is your name?: ")
     bid = int(input("What's your bid?: $"))
-    bids[name] = bid  # modifies the dict that was passed in
+    bids[name] = bid 
 
 def find_winner(bids):
     highest_bid = 0
