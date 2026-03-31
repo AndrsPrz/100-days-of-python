@@ -5,7 +5,7 @@ from art import logo
 def deal_card(deck):
     return random.choice(deck)
  
-def calculate_score(cards)
+def calculate_score(cards):
     if sum(cards) == 21 and len(cards) == 2:
         return 0
     
