@@ -113,6 +113,35 @@ def calculate_score(cards):
 # ---------------------------------------------------------------------------
 
 def compare(player_score, computer_score):
+     """Compare the final scores of the player and the computer and print
+    the outcome.
+ 
+    Score semantics (as returned by :func:`calculate_score`):
+    - ``0``  → natural Blackjack (wins unless both players have it).
+    - ``1–21`` → valid hand; higher is better.
+    - ``>21``  → bust (automatic loss).
+ 
+    Parameters
+    ----------
+    player_score : int
+        The player's final score (0 = Blackjack, >21 = bust).
+    computer_score : int
+        The computer's final score (0 = Blackjack, >21 = bust).
+ 
+    Returns
+    -------
+    None
+        This function only prints a result message; it has no return value.
+ 
+    Decision order
+    --------------
+    1. Draw → both scores are equal.
+    2. Player Blackjack → player wins instantly.
+    3. Computer Blackjack → computer wins instantly.
+    4. Player bust → player loses.
+    5. Computer bust → player wins.
+    6. Higher score wins.
+    """
     """Compares final scores and prints the result."""
     if player_score == computer_score:
         print("Draw!")
@@ -129,18 +158,44 @@ def compare(player_score, computer_score):
     else:
         print("You lose 😢")
  
- 
+ # ---------------------------------------------------------------------------
+# Main game loop
+# ---------------------------------------------------------------------------
 def play_game():
-    print(logo)
+     """Run a single round of Blackjack.
  
+    Flow
+    ----
+    1. Display the ASCII logo.
+    2. Build the deck and deal two cards to both the player and computer.
+    3. Enter the player's turn: show the player's full hand and the
+       computer's first card only, then prompt to draw ('y') or stand ('n').
+       The turn ends automatically on a Blackjack or bust.
+    4. Computer's turn: the computer draws cards until its score is 17 or
+       more, following the standard dealer rule.
+    5. Reveal all cards and call :func:`compare` to print the result.
+ 
+    Deck representation
+    -------------------
+    The deck is ``[11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]``:
+    - 11  → Ace (may be adjusted to 1 by :func:`calculate_score`).
+    - Four 10s → represent 10, J, Q, and K (all worth 10 in Blackjack).
+    Cards are drawn with replacement, so the deck never runs out.
+ 
+    Returns
+    -------
+    None
+    """
+    print(logo)
+     # Standard simplified Blackjack deck (with replacement)
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
  
-    
+    # Deal initial hands    
     player_cards = [deal_card(cards), deal_card(cards)]
     computer_cards = [deal_card(cards), deal_card(cards)]
  
     game_over = False
- 
+   # --- Player's turn ---
     while not game_over:
  
         player_score = calculate_score(player_cards)
@@ -149,7 +204,7 @@ def play_game():
         print(f"\n   Your cards: {player_cards}, current score: {player_score}")
         print(f"   Computer's first card: {computer_cards[0]}")
  
-        
+        # Auto-end conditions: Blackjack (score == 0) for either side, or bust
         if player_score == 0 or computer_score == 0 or player_score > 21:
             game_over = True
         else:
@@ -159,18 +214,23 @@ def play_game():
             else:
                 game_over = True
  
-    
+    # --- Computer's turn ---
+    # Computer must draw until score >= 17; stops immediately on Blackjack (0)
     while computer_score != 0 and computer_score < 17:
         computer_cards.append(deal_card(cards))
         computer_score = calculate_score(computer_cards)
  
-   
+    # --- Reveal and compare ---
     print(f"\n   Your final hand: {player_cards}, final score: {player_score}")
     print(f"   Computer's final hand: {computer_cards}, final score: {computer_score}")
     compare(player_score, computer_score)
  
  
-
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+ 
+# Prompt the player to start a new game; repeat until they answer 'n'.
 while input("\nDo you want to play a game of Blackjack? Type 'y' or 'n': ") == 'y':
     play_game()
  
