@@ -77,6 +77,7 @@ if __name__ == "__main__":
 
 """
 Modifying Outer Scopes
+1. The global Keyword (Modifying Global Scope)
 Example: Tracking VIP escalations across a shift.
 Using 'global' (Use with caution!)
 """
@@ -94,3 +95,41 @@ def handle_vip_issue():
 
 handle_vip_issue()
 handle_vip_issue()
+
+
+
+"""
+2. The nonlocal Keyword (Modifying Enclosing Scope)
+Example: A session timer for a specific agent.
+Using 'nonlocal'
+"""
+
+def agent_login_session(agent_name):
+    active_chats = 0  # Enclosing variable
+    
+    def assign_new_chat():
+        nonlocal active_chats # Tells Python to use the variable from agent_login_session
+        active_chats += 1
+        print(f"{agent_name} now has {active_chats} active chats.")
+        
+    return assign_new_chat
+
+# Create a session for an agent
+session = agent_login_session("Alex")
+session() # Alex now has 1 active chats.
+session() # Alex now has 2 active chats.
+
+"""
+🌟 The "Best Practice" Alternative
+pass data in as arguments and pass data out using return
+The Clean Way: No globals, no nonlocals. Just inputs and outputs.
+"""
+def add_new_chat(current_chat_count):
+    """Takes the current count, returns the updated count."""
+    return current_chat_count + 1
+
+# The state is managed outside, and passed into the function when needed.
+alex_chats = 0
+alex_chats = add_new_chat(alex_chats)
+alex_chats = add_new_chat(alex_chats)
+print(f"Alex's final chat count: {alex_chats}")
