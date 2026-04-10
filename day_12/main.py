@@ -71,3 +71,26 @@ if __name__ == "__main__":
     # print(queue_status)
     # Why? Because 'queue_status' is ENCLOSED inside manage_customer_queue.
     # It does not exist in the Global scope.
+
+
+
+
+"""
+Modifying Outer Scopes
+Example: Tracking VIP escalations across a shift.
+Using 'global' (Use with caution!)
+"""
+
+escalation_count = 0  # Global variable
+
+def handle_vip_issue():
+    # Without this line, Python would think we are trying to create
+    # a NEW local variable called 'escalation_count'.
+    global escalation_count 
+    
+    # Now we are modifying the global variable
+    escalation_count += 1
+    print(f"Issue resolved. Total escalations today: {escalation_count}")
+
+handle_vip_issue()
+handle_vip_issue()
