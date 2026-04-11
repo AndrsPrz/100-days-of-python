@@ -1,3 +1,4 @@
+import math
 """
 LEGB Scope Rule Masterclass
 This script demonstrates how Python searches for variable names 
@@ -133,3 +134,47 @@ alex_chats = 0
 alex_chats = add_new_chat(alex_chats)
 alex_chats = add_new_chat(alex_chats)
 print(f"Alex's final chat count: {alex_chats}")
+
+
+# ==========================================
+    # 4. EXERCISE NUMBER 7 IS_PRIME_NUMBER 
+# ==========================================
+import math
+def is_prime(num):
+    """
+        Determines if a given integer is a prime number.
+
+        Args:
+            number (int): The number to check.
+
+        Returns:
+            bool: True if the number is prime, False otherwise.
+        """
+    # 1. Handle edge cases: Numbers <= 1 are not prime.
+    if num <= 1:
+        return False
+
+    # 2. Check for factors from 2 up to the square root of the number.
+    # We use math.isqrt() to get the integer square root.
+    # We add + 1 because the range() function stops just before the last number.
+    limit = math.isqrt(num) + 1
+    for i in range(2, limit):
+        # If the number is evenly divisible by 'i', it's not prime.
+        if num % i == 0:
+            return False
+
+    # 3. If the loop finishes and finds no divisors, it is prime!
+    return True
+
+# ==========================================
+# Testing the function
+# ==========================================
+if __name__ == "__main__":
+    test_number = [21, 73, 75]
+    for number in test_number:
+        # A quick check: 21km (a half marathon distance) is divisible by 3 and 7.
+        if is_prime(number):
+            print(f"{number} is PRIME.")
+        else:
+            print(f"{number} is NOT prime.")
+
