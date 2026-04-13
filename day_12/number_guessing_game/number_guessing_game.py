@@ -9,5 +9,5 @@
 #5.2. If guessing number is high print too high and if it is low print too low.
 #5.3. Check the remain opportunities according to the level choosen and using an while loop with substraction for a the name of the attemps to ask for another guessing number or end the program as lose.
 #5.4. if the number is right. Print Won! and end the program breack while loop and go out the funtion.
-#6 Call the 'logic' fiction. 
+#6 Call the 'logic' fiction with the parameter difficulty and chosen random number by program 
 #7. Ask if the customer wish to play again and save answer in the variable to_play. if the customer write 'yes' re-start the program to the step 3. so encapsule the program in While loop to_play. if the customer choose 'no' end and exit program.
