@@ -1,6 +1,6 @@
 #1. Print logo
 #2. Print welcome and ad
-#3.0 Create a while loop with the following instructions for program while to_play = 'yes'
+#3.0 Create a while loop with the following instructions for program while to_play == 'yes'
 #3.1. Use random to chose one number
 #4. ask the player to choose a difficulty and save it in a input, in a variable difficult where vaules could be 'easy' or 'hard'
 #5. make a fuction named 'logic' to take a paramether difficulty for 'easy' (10 attemps) and 'hard' level, (5 attemps)
