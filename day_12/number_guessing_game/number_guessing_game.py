@@ -70,3 +70,43 @@ def logic(difficulty: str, computer_number: int) -> None:
         else:
             print("Guess again.")
  
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+ 
+def main() -> None:
+    """Launch and control the main game session.
+ 
+    Displays the welcome screen once, then runs the game loop. After each
+    round the player is asked whether they want to play again. The loop
+    continues as long as the player responds with 'yes'.
+    """
+    # Display logo and welcome message
+    print(art.logo)
+    print("Welcome to the Number Guessing Game!")
+ 
+    # Main play-again loop
+    to_play = 'yes'
+    while to_play == 'yes':
+ 
+        # Generate a new secret number for each round
+        print("\nI'm thinking of a number between 1 and 100.")
+        computer_number = random.randint(1, 100)
+ 
+        # Ask the player to choose a difficulty level
+        difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").strip().lower()
+        while difficulty not in ('easy', 'hard'):
+            difficulty = input("Invalid choice. Please type 'easy' or 'hard': ").strip().lower()
+ 
+        # Run the game logic for this round
+        logic(difficulty, computer_number)
+ 
+        # Ask whether the player wants to play again
+        to_play = input("\nDo you want to play again? Type 'yes' or 'no': ").strip().lower()
+ 
+    print("\nThanks for playing. See you next time!")
+ 
+ 
+if __name__ == "__main__":
+    main()
+ 
