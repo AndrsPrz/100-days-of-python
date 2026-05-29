@@ -33,7 +33,7 @@ def print_report(student_dict):
     passing_count = 0
     failing_count = 0
 
-    for name in student_dict: """Where is student_dict"""
+    for name in student_dict: #Where is student_dict
         score = student_dict[name]
         grade = get_grade(score)
         print(f"{name}: {score} points -> Grade {grade}") """FIX THIS FUNCTION FIRST This function get the student's name, score and grade."""
