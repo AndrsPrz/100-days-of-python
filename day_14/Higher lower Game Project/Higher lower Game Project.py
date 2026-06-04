@@ -1,6 +1,6 @@
 #Add logo from the Art.py file and print it 
-#Print Compare A: 
-#chose a ramdong dictiorary from a list, print name, a profession and country 
+#Print 'Compare A:' 
+#chose a ramdon element from data dictiorary, then print name, a profession and country 
 #Save the follower amount on a variable calle followersA
 # print VS logo
 #Print Against B: Name, profession and Country
