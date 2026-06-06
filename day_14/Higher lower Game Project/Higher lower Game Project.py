@@ -1,7 +1,8 @@
 #Add logo from the Art.py file and print it 
 # Create a variable called score = 0
+# while play_game = True 
 # get into in all in a main function:
- # keep playing with a while loop, while play_game = true 
+ # keep playing with a while loop, 
   #Print 'Compare A:' 
   #From game_data.py file, chose a ramdon dictionary from the list called 'data', then from the dictionary choose and print name, a 'description' and 'country'
   #Save the follower_count on a variable calle A_followers
@@ -18,5 +19,5 @@
     #     os.system('cls' if os.name == 'nt' else 'clear')
     # After logo clear_screen() and print 'You're right! Current score: {score}'
     # print in the console and display the game again but fist create  print Score and add it 1 point, and the right answer a or b, woud be the new A value. So save the right answer items in a.
-  # however If the answer is wrong, it's guessing is not equal to the_highest finish the program, pay_game = false and print 'Sorry, that's wrong. Final score: 0'
+  # however If the answer is wrong, it's guessing is not equal to the_highest finish the program, pay_game = False and print 'Sorry, that's wrong. Final score: {score}'
 #  Gameover.
