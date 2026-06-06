@@ -18,6 +18,9 @@
     # def clear_screen():
     #     os.system('cls' if os.name == 'nt' else 'clear')
     # After logo clear_screen() and print 'You're right! Current score: {score}'
-    # print in the console and display the game again but fist create  print Score and add it 1 point, and the right answer a or b, woud be the new A value. So save the right answer items in a.
+    # print in the console and display the game again however fist create  print Score and add it 1 point,
+    # and the right answer chosen, woud be the new A value, that is a index on the list, so count their position on the list, to do this use list.index() and apply random without this item element. 
+   # To this last previous step filter the list first using a list comprehension, then pass the filtered list to random.choice(), like this filtered_list = [item for item in my_list if item != exclude_value]
+   #  So save the right answer items in a.
   # however If the answer is wrong, it's guessing is not equal to the_highest finish the program, pay_game = False and print 'Sorry, that's wrong. Final score: {score}'
 #  Gameover.
