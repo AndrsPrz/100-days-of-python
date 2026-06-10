@@ -4,8 +4,10 @@
 # get into in all in a main function:
  # keep playing with a while loop, 
   #Print 'Compare A:' 
-  #From game_data.py file, chose a ramdon dictionary from the list called 'data', then from the dictionary choosen and print name, a 'description' and 'country'
-  #Save the follower_count on a variable calle A_followers
+  #radon 1 a = random.randint(0, (len(data)-1))
+  #radon 2 b = random.randint(0, (len(data)-1))
+  #From game_data.py file, chose a ramdon dictionary from the list called 'data', dictionary_a = data[a]. then from the dictionary_a choosen, print name eg. print(dictionary_a["name"], a 'description' and 'country'
+  #save dictionary_a["follower_number"] on a variable calle a_followers. 
   # print 'VS' logo
   #Print 'Against B:'
   #From game_data.py file, chose another ramdon dictionary from the list called 'data', then from the dictionary choose and print name, a 'description' and 'country'
