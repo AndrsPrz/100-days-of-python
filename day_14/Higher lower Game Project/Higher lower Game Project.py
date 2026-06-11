@@ -16,7 +16,7 @@
 
   # Make a conditional if A_followers > B_followers so, the_highest = dictinary of data choosen on printed on A option, else the_highest = dictinary of data choosen on printed on B option
   # Then try to print the imput "Who has more followers? Type 'A' or 'B':", save it in 'guessing' variable and save guessing.lower() in a new variable called 'guessing_highest' .
-  # Compare the_highest.followers == guessing_highest -> take the followers amount into dictionary positon, that is into the list into the data file. 
+  # Compare the_highest.followers == take the followers amount into dictionary positon, that is into the list into the data file. 
 
   # If the previous condition is true, first score += 1, then delete full the previos print. We can use   import os
     # def clear_screen():
